@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-base: #dfdff0;
+  --color-base: #fbf5f3;
   --font-display: 'Space Mono', monospace;
   --font-paragraph: 'Work Sans Variable', sans-serif;
 }
@@ -33,7 +33,7 @@
 .three-body {
   --uib-size: 35px;
   --uib-speed: 0.8s;
-  --uib-color: #5d3fd3;
+  --uib-color: #7b0828;
   position: relative;
   display: inline-block;
   height: var(--uib-size);
