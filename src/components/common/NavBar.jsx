@@ -7,8 +7,6 @@ const { useWindowScroll } = pkg;
 const navItems = ['About', 'Services', 'Projects', 'Contact'];
 
 const NavBar = () => {
-  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
-
   const navContainerRef = useRef(null);
 
   const { y: currentScrollY } = useWindowScroll();

@@ -1,8 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import NavBar from '@/components/common/NavBar';
+import Hero from '@/components/home/Hero';
 import About from '@/components/home/About.astro';
-import Hero from '@/components/home/Hero.astro';
 import Services from '@/components/home/Services.astro';
 import Story from '@/components/home/Story.astro';
 import Contact from '@/components/home/Contact.astro';
@@ -12,7 +12,7 @@ import Footer from '@/components/common/Footer.astro';
 <Layout title="Northern Venture Drone Services">
   <main class="relative min-h-screen w-screen overflow-x-hidden">
     <NavBar />
-    <Hero />
+    <Hero client:load />
     <About />
     <Services />
     <Story />
