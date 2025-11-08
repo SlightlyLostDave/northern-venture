@@ -2,7 +2,8 @@ import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 import * as reactUse from 'react-use';
 
-const navItems = ['About', 'Services', 'Projects', 'Contact'];
+// const navItems = ['About', 'Services', 'Projects', 'Contact'];
+const navItems = [];
 
 const NavBar = () => {
   const navContainerRef = useRef(null);
@@ -47,11 +48,13 @@ const NavBar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           <div className="flex items-center gap-7">
-            <img
-              className="w-40 relative top-8"
-              src="images/logo.webp"
-              alt="Northern Venture logo"
-            />
+            <a href="/">
+              <img
+                className="w-60"
+                src="images/logo.webp"
+                alt="Northern Venture logo"
+              />
+            </a>
           </div>
 
           <div className="flex h-full items-center">
