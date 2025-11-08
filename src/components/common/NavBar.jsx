@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import * as reactUse from 'react-use';
 
 // const navItems = ['About', 'Services', 'Projects', 'Contact'];
-const navItems = [];
+const navItems = ['About'];
 
 const NavBar = () => {
   const navContainerRef = useRef(null);
