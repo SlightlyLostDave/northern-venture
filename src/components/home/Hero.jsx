@@ -133,7 +133,19 @@ const Hero = () => {
             onLoadedData={handleVideoLoad}
           />
         </div>
+
+        <h1 className="hero-heading absolute bottom-5 right-5 z-40 text-red-50">
+          Know more
+        </h1>
+
+        <div className="absolute left-0 top-0 z-40 size-full">
+          <div className="mt-12 px-5 sm:px-10">
+            <div className="hero-heading text-red-50">See more</div>
+          </div>
+        </div>
       </div>
+
+      <div className="hero-heading absolute bottom-5 right-5 text-black"></div>
     </div>
   );
 };
