@@ -1,37 +1,40 @@
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'react';
-import pkg from 'react-use';
-
-const { useWindowScroll } = pkg;
+import * as reactUse from 'react-use';
 
 const navItems = ['About', 'Services', 'Projects', 'Contact'];
 
 const NavBar = () => {
   const navContainerRef = useRef(null);
 
-  const { y: currentScrollY } = useWindowScroll();
+  // react-use may be CommonJS — use a namespace import to access the hook safely
+  const scroll = reactUse.useWindowScroll
+    ? reactUse.useWindowScroll()
+    : { y: 0 };
+  const currentScrollY = scroll.y;
+
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
 
   useEffect(() => {
     if (currentScrollY === 0) {
       setIsNavVisible(true);
-      navContainerRef.current.classList.remove('floating-nav');
+      navContainerRef.current?.classList.remove('floating-nav');
     } else if (currentScrollY > prevScrollY) {
       setIsNavVisible(false);
-      navContainerRef.current.classList.add('floating-nav');
+      navContainerRef.current?.classList.add('floating-nav');
     } else if (currentScrollY < prevScrollY) {
       setIsNavVisible(true);
-      navContainerRef.current.classList.add('floating-nav');
+      navContainerRef.current?.classList.add('floating-nav');
     }
 
-    setLastScrollY(currentScrollY);
-  }, [currentScrollY, prevScrollY]);
+    setPrevScrollY(currentScrollY);
+  }, [currentScrollY]);
 
   useEffect(() => {
     gsap.to(navContainerRef.current, {
       y: isNavVisible ? 0 : -100,
-      opacity: isNavVisible ? 1 : 0.5,
+      opacity: isNavVisible ? 1 : 0,
       duration: 0.2,
     });
   }, [isNavVisible]);
@@ -44,7 +47,11 @@ const NavBar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           <div className="flex items-center gap-7">
-            <img className="w-10" src="" alt="Northern Venture logo" />
+            <img
+              className="w-40 relative top-8"
+              src="images/logo.webp"
+              alt="Northern Venture logo"
+            />
           </div>
 
           <div className="flex h-full items-center">
