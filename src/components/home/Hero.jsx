@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 import VideoPreview from './VideoPreview';
-import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -145,7 +145,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="hero-heading absolute bottom-5 right-5 text-black"></div>
+      <div className="hero-heading absolute bottom-5 right-5 text-black">
+        Know more
+      </div>
     </div>
   );
 };

@@ -8,7 +8,7 @@
 
 @layer base {
   body {
-    @apply w-[100dvw] overflow-x-hidden bg-base font-paragraph;
+    @apply w-[100dvw] overflow-x-hidden bg-red-50 font-paragraph;
   }
 }
 
@@ -31,6 +31,17 @@
 
   .hero-heading {
     @apply uppercase font-display font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
+  }
+
+  .animated-title {
+    @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem];
+  }
+
+  .animated-word {
+    @apply font-display font-black opacity-0;
+    transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
+    transform-origin: 50% 50% -150px !important;
+    will-change: opacity, transform;
   }
 }
 
