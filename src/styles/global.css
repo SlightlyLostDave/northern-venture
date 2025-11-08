@@ -43,6 +43,14 @@
     transform-origin: 50% 50% -150px !important;
     will-change: opacity, transform;
   }
+
+  .bento-title {
+    @apply uppercase md:text-6xl text-4xl font-black font-display;
+  }
+
+  .bento-tilt_1 {
+    @apply relative border border-white/20 overflow-hidden rounded-md transition-transform duration-300 ease-out;
+  }
 }
 
 /* From Uiverse.io by G4b413l */
