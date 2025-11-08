@@ -1,14 +1,26 @@
 import clsx from 'clsx';
 
-const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
-  return (
-    <button
-      id={id}
-      className={clsx(
-        'group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black',
-        containerClass
-      )}
-    >
+const Button = ({
+  id,
+  title,
+  rightIcon,
+  leftIcon,
+  containerClass,
+  href,
+  target,
+  rel,
+  onClick,
+  type = 'button',
+}) => {
+  const classes = clsx(
+    'group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black',
+    containerClass
+  );
+
+  const safeRel =
+    rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined);
+  const content = (
+    <>
       {leftIcon}
 
       <span className="relative inline-flex overflow-hidden font-general text-xs uppercase">
@@ -21,6 +33,28 @@ const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
       </span>
 
       {rightIcon}
+    </>
+  );
+
+  if (href) {
+    return (
+      <a
+        id={id}
+        href={href}
+        target={target}
+        rel={safeRel}
+        className={classes}
+        onClick={onClick}
+        aria-label={typeof title === 'string' ? title : undefined}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <button id={id} type={type} className={classes} onClick={onClick}>
+      {content}
     </button>
   );
 };
