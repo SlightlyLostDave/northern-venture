@@ -38,7 +38,7 @@ const About = () => {
           containerClass="mt-5 !text-black text-center"
         />
 
-        <div className="absolute bottom-[-125dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center text-lg sm:bottom-[-95dvh] md:max-w-[34rem]">
+        <div className="absolute bottom-[-125dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center text-lg sm:bottom-[-95dvh] md:bottom-[-102dvh] md:max-w-[34rem]">
           <p>
             At Northern Venture Drone Services, we deliver high-precision aerial
             mapping, inspection, and imaging solutions that help industries make
