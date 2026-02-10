@@ -13,6 +13,20 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L0Q4S4FFMM"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-L0Q4S4FFMM');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
