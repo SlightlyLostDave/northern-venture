@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import icon from 'astro-icon';
@@ -10,7 +10,22 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: 'FRINCO',
+      cssVariable: '--font-frinco',
+      options: {
+        variants: [
+          {
+            src: ['./src/assets/fonts/FRINCO.woff2'],
+            weight: 'normal',
+            style: 'normal',
+          },
+        ],
+      },
+    },
+  ],
   integrations: [
     react(),
     icon({

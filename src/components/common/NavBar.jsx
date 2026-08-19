@@ -2,6 +2,8 @@ import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 import * as reactUse from 'react-use';
 
+import logo from '@assets/logo.svg';
+
 // const navItems = ['About', 'Services', 'Projects', 'Contact'];
 const navItems = ['About', 'Services', 'Contact'];
 
@@ -47,15 +49,12 @@ const NavBar = () => {
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-          <div className="flex items-center gap-7">
-            <a href="/">
-              <img
-                className="w-60"
-                src="images/logo.webp"
-                alt="Northern Venture logo"
-              />
-            </a>
-          </div>
+          <a className="flex gap-4" href="/">
+            <img className="w-16" src={logo.src} alt="Northern Venture logo" />
+            <div className="font-(family-name:--font-frinco) font-light text-xl leading-tight text-white break-all text-center">
+              Northern <span className="block">Venture</span>
+            </div>
+          </a>
 
           <div className="flex h-full items-center">
             <div className="hidden md:block">
