@@ -1,43 +1,59 @@
-# Astro Starter Kit: Minimal
+# Northern Venture Drone Services
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Marketing site for Northern Venture Drone Services, a Kitchener, Ontario-based
+provider of aerial mapping, inspection, and imaging for construction, mining,
+agriculture, and preservation work.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with [Astro](https://astro.build), React islands for the interactive
+bits, Tailwind for styling, and GSAP for scroll animation.
 
-## 🚀 Project Structure
+## Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Astro** – pages, routing, static output
+- **React** – interactive components (nav, hero, animated sections)
+- **Tailwind CSS v4** – styling, via the Vite plugin
+- **GSAP** (+ `@gsap/react`) – scroll-triggered animation
+- **Partytown** – offloads Google Analytics to a web worker
+
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── assets/           fonts, images used at build time
+├── components/
+│   ├── common/       NavBar, Footer, Button, LoadingScreen
+│   └── home/         Hero, About, Services, Contact, Story (unused)
+├── layouts/
+│   └── Layout.astro  base HTML shell, fonts, GA tag
+├── pages/
+│   └── index.astro   the one page
+└── styles/
+public/
+├── images/, video/    static media served as-is
+└── site.webmanifest, favicons
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Path aliases (see `tsconfig.json`): `@/*`, `@assets/*`, `@styles/*`,
+`@layouts/*`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Commands
 
-Any static assets, like images, can be placed in the `public/` directory.
+Run from the project root:
 
-## 🧞 Commands
+| Command             | Action                                         |
+| ------------------- | ---------------------------------------------- |
+| `npm install`       | Install dependencies                           |
+| `npm run dev`       | Start the dev server at `localhost:4321`       |
+| `npm run build`     | Build the production site to `./dist/`         |
+| `npm run preview`   | Preview the production build locally           |
+| `npm run astro ...` | Run any Astro CLI command (e.g. `astro check`) |
+| `npm run commit`    | Commitizen prompt for a conventional commit    |
 
-All commands are run from the root of the project, from a terminal:
+## Notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Commits follow [Conventional Commits](https://www.conventionalcommits.org/)
+  via commitizen (`cz-conventional-changelog`) — use `npm run commit` instead
+  of `git commit` if you want the prompts.
+- The `Story` section exists but is commented out of `index.astro`.
+- Google Analytics is loaded through Partytown; the tracking ID lives in
+  `src/layouts/Layout.astro`.
