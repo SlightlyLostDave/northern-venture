@@ -1,6 +1,6 @@
 # Northern Venture Drone Services
 
-Marketing site for Northern Venture Drone Services, a Kitchener, Ontario-based
+Marketing site for [Northern Venture Drone Services](https://www.northernventure.ca/), a Kitchener, Ontario-based
 provider of aerial mapping, inspection, and imaging for construction, mining,
 agriculture, and preservation work.
 
@@ -9,11 +9,11 @@ bits, Tailwind for styling, and GSAP for scroll animation.
 
 ## Stack
 
-- **Astro** – pages, routing, static output
-- **React** – interactive components (nav, hero, animated sections)
-- **Tailwind CSS v4** – styling, via the Vite plugin
-- **GSAP** (+ `@gsap/react`) – scroll-triggered animation
-- **Partytown** – offloads Google Analytics to a web worker
+- **Astro** - pages, routing, static output
+- **React** - interactive components (nav, hero, animated sections)
+- **Tailwind CSS v4** - styling, via the Vite plugin
+- **GSAP** (+ `@gsap/react`) - scroll-triggered animation
+- **Partytown** - offloads Google Analytics to a web worker
 
 ## Project structure
 
@@ -52,7 +52,7 @@ Run from the project root:
 ## Notes
 
 - Commits follow [Conventional Commits](https://www.conventionalcommits.org/)
-  via commitizen (`cz-conventional-changelog`) — use `npm run commit` instead
+  via commitizen (`cz-conventional-changelog`) - use `npm run commit` instead
   of `git commit` if you want the prompts.
 - The `Story` section exists but is commented out of `index.astro`.
 - Google Analytics is loaded through Partytown; the tracking ID lives in
