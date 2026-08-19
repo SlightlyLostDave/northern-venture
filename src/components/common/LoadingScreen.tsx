@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 
 import '@styles/loading-screen.css';
 
-const LoadingScreen = ({ loading }) => {
+interface LoadingScreenProps {
+  loading: boolean;
+}
+
+const LoadingScreen = ({ loading }: LoadingScreenProps) => {
   const [visible, setVisible] = useState(true);
   const [fading, setFading] = useState(false);
 

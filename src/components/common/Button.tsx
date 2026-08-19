@@ -1,4 +1,18 @@
 import clsx from 'clsx';
+import type { MouseEventHandler, ReactNode } from 'react';
+
+interface ButtonProps {
+  id?: string;
+  title: ReactNode;
+  rightIcon?: ReactNode;
+  leftIcon?: ReactNode;
+  containerClass?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
+  onClick?: MouseEventHandler;
+  type?: 'button' | 'submit' | 'reset';
+}
 
 const Button = ({
   id,
@@ -11,7 +25,7 @@ const Button = ({
   rel,
   onClick,
   type = 'button',
-}) => {
+}: ButtonProps) => {
   const classes = clsx(
     'group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black',
     containerClass

@@ -8,7 +8,7 @@ import logo from '@assets/logo.svg';
 const navItems = ['About', 'Services', 'Contact'];
 
 const NavBar = () => {
-  const navContainerRef = useRef(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
 
   // react-use may be CommonJS — use a namespace import to access the hook safely
   const scroll = reactUse.useWindowScroll

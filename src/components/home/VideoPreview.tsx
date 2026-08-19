@@ -1,13 +1,22 @@
 import { useRef, useState, useEffect } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import { gsap } from 'gsap';
 
-const VideoPreview = ({ children }) => {
+interface VideoPreviewProps {
+  children: ReactNode;
+}
+
+const VideoPreview = ({ children }: VideoPreviewProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
-  const sectionRef = useRef(null);
-  const contentRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = ({ clientX, clientY, currentTarget }) => {
+  const handleMouseMove = ({
+    clientX,
+    clientY,
+    currentTarget,
+  }: MouseEvent<HTMLElement>) => {
     const rect = currentTarget.getBoundingClientRect();
     const xOffset = clientX - (rect.left + rect.width / 2);
     const yOffset = clientY - (rect.top + rect.height / 2);
