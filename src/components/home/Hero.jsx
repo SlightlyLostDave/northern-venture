@@ -4,6 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 import VideoPreview from './VideoPreview';
+import LoadingScreen from '../common/LoadingScreen';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,6 +26,15 @@ const Hero = () => {
       setLoading(false);
     }
   }, [loadedVideos]);
+
+  // `onLoadedData` is a non-bubbling media event: if a video (e.g. served
+  // from cache) fires it before React finishes attaching listeners during
+  // hydration, the event is missed and loading would otherwise never clear.
+  useEffect(() => {
+    const failSafe = setTimeout(() => setLoading(false), 4000);
+
+    return () => clearTimeout(failSafe);
+  }, []);
 
   const handleMiniVideoClick = () => {
     setHasClicked(true);
@@ -53,7 +63,7 @@ const Hero = () => {
         });
       }
     },
-    { dependencies: [currentIndex], revertOnUpdate: true }
+    { dependencies: [currentIndex], revertOnUpdate: true },
   );
 
   useGSAP(() => {
@@ -78,16 +88,7 @@ const Hero = () => {
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
-      {/* {loading && (
-        <div className="flex items-center justify-center absolute z-[100] h-dvh w-screen overflow-hidden bg-red-50">
-          {/* https://uiverse.io/G4b413l/tidy-walrus-92 
-          <div className="three-body">
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-          </div>
-        </div>
-      )} */}
+      <LoadingScreen loading={loading} />
 
       <div
         id="video-frame"
@@ -125,7 +126,7 @@ const Hero = () => {
           <video
             className="absolute left-0 top-0 size-full object-cover object-center"
             src={getVideoSrc(
-              currentIndex === totalVideos - 1 ? 1 : currentIndex
+              currentIndex === totalVideos - 1 ? 1 : currentIndex,
             )}
             autoPlay
             loop
@@ -139,7 +140,7 @@ const Hero = () => {
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
-          <div className="mt-12 px-5 sm:px-10">
+          <div className="mt-16 px-5 sm:px-10">
             <div className="hero-heading text-red-50">See more</div>
           </div>
         </div>

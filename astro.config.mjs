@@ -25,6 +25,11 @@ export default defineConfig({
         ],
       },
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'IBM Plex Mono',
+      cssVariable: '--font-ibm-plex-mono',
+    },
   ],
   integrations: [
     react(),
